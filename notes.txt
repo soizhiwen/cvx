@@ -1,0 +1,31 @@
+cvx_2d.py without smoothing
+
+To smooth the given path using convex optimization, we can formulate it as a quadratic programming problem. The objective is to minimize the curvature of the path, and the constraint is to ensure that the optimized path passes through the original starting and ending points. We can use cvxpy, a convex optimization library for Python, to solve this problem.
+
+In this code, we first define the original path as a set of points, and the starting and ending points. We then define the variables for the optimized path as a matrix with the same number of rows as the original path and two columns for the x and y coordinates. We define the objective function to minimize the curvature of the path, and the constraints to ensure that the optimized path passes through the starting and ending points. We then solve the optimization problem using cvxpy and get the optimized path. Finally, we plot the original and optimized paths using plotly.
+
+Note that this code assumes that the given path is a set of points in 2D. If the path is given as a set of line segments, we can convert it to a set of points by adding intermediate points between the line segments.
+
+
+cvx_2d.py with smoothing
+
+To add regularization to the optimization problem, we can modify the objective function to include a trade-off between minimizing the curvature and minimizing the distance between the optimized path and the original path. We can do this by adding a regularization parameter that controls the weight of the distance term in the objective function.
+
+In this modified code, we first define the original path as a set of points, and the starting and ending points. We then define the variables for the optimized path as a matrix with the same number of rows as the original path and two columns for the x and y coordinates. We define the regularization parameter alpha and modify the objective function to include a trade-off between minimizing the curvature and minimizing the distance between the optimized path and the original path. We then solve the optimization problem using cvxpy and get the optimized path. Finally, we plot the original and optimized paths using plotly.
+
+Note that the value of the regularization parameter alpha controls the trade-off between minimizing the curvature and minimizing the distance. A larger value of alpha will result in a smoother but more distant optimized path, while a smaller value of alpha will result in a path closer to the original but with more curvature.
+
+
+Find the optimal value of alpha
+
+To get the optimal value of alpha that balances the trade-off between minimizing the curvature and minimizing the distance, we can plot a trade-off curve that shows how the objective function value changes as alpha varies.
+
+In this modified code, we first define the original path as a set of points, and the starting and ending points. We then define the variables for the optimized path as a matrix with the same number of rows as the original path and two columns for the x and y coordinates. We define a range of alpha values and solve the optimization problem for each alpha value to compute the objective function value. We then plot the trade-off curve that shows how the objective function value changes as alpha varies.
+
+We also find the optimal alpha value that minimizes the objective function value, and compute the optimized path for the optimal alpha value. Finally, we plot the original and optimized paths using plotly.
+
+Note that the trade-off curve shows how the objective function value changes as alpha varies, and the optimal alpha value can be chosen based on the trade-off between minimizing the curvature and minimizing the distance. In general, a smaller value of alpha will result in a path that is closer to the original path but with more curvature, while a larger value of alpha will result in a smoother path that may deviate more from the original path.
+
+The trade-off curve can help us choose the optimal alpha value based on our priorities. If we want a smoother path with less curvature, we may choose a larger value of alpha. If we want a path that is closer to the original path, we may choose a smaller value of alpha.
+
+The code above will plot the trade-off curve and the optimized path for the optimal alpha value. The optimal alpha value and the corresponding objective function value will be displayed in the plot.
