@@ -91,4 +91,6 @@ def plot_graph(g1, g2, alpha, save_name):
         ),
     )
     fig.write_html(save_name)
+    # import plotly.io as pio
+    # pio.write_image(fig, 'image.png',scale=3, width=1280, height=720)
     fig.show()
