@@ -87,7 +87,7 @@ def plot_graph(g1, g2, alpha, save_name):
     fig = go.Figure(
         data=[e1, n1, e2, n2],
         layout=go.Layout(
-            title=f"Original and Optimized Graphs, alpha={alpha}",
+            title=f"Original and Optimized Graphs, \u03B1={alpha}",
         ),
     )
     fig.write_html(save_name)
