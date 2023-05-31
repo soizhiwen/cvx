@@ -47,14 +47,14 @@ def get_edge_trace(G, color="#888"):
     edge_trace = go.Scatter(
         x=edge_x,
         y=edge_y,
-        line=dict(width=0.5, color=color),
+        line=dict(color=color),
         mode="lines",
         showlegend=False,
     )
     return edge_trace
 
 
-def get_node_trace(G, color="#0000FF", size=20, name="Original", text=True):
+def get_node_trace(G, color="#0000FF", name="Original"):
     node_x = []
     node_y = []
     for node in G.nodes():
@@ -69,11 +69,10 @@ def get_node_trace(G, color="#0000FF", size=20, name="Original", text=True):
         name=name,
         marker=dict(
             color=color,
-            size=size,
-            opacity=1.0 if text else 0.6,
+            size=25,
         ),
-        text=list(G.nodes()) if text else None,
-        textfont=dict(size=8, color="#FFF"),
+        text=list(G.nodes()),
+        textfont=dict(color="#FFF"),
     )
     return node_trace
 
@@ -82,7 +81,7 @@ def plot_graph(g1, g2, alpha, save_name):
     e1 = get_edge_trace(g1)
     e2 = get_edge_trace(g2, color="#000")
     n1 = get_node_trace(g1)
-    n2 = get_node_trace(g2, color="#FF0000", size=10, name="Optimized", text=False)
+    n2 = get_node_trace(g2, color="#FF0000", name="Optimized")
 
     fig = go.Figure(
         data=[e1, n1, e2, n2],
