@@ -69,7 +69,7 @@ def get_node_trace(G, color="#0000FF", name="Original"):
         name=name,
         marker=dict(
             color=color,
-            size=25,
+            size=30,
         ),
         text=list(G.nodes()),
         textfont=dict(color="#FFF"),
